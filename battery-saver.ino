@@ -358,18 +358,18 @@ void switch_off(){
   pinMode(SELECT_SWITCH_PIN,INPUT);
   pinMode(ENTER_SWITCH_PIN,INPUT);
   
-  //ƒpƒ[ƒ_ƒEƒ“ƒ‚[ƒh‚Ì‘I‘ð‚ÆƒXƒŠ[ƒv‹@”\‚Ì‹–‰Â(ƒf[ƒ^ƒV[ƒg14.12.1SMCRŽQÆ)
-  SMCR |= (1 << SM1);// ƒpƒ[ƒ_ƒEƒ“ƒ‚[ƒh‚ÉÝ’è
-  SMCR |= (1 << SE);// ƒXƒŠ[ƒv‹@”\‚Ì‹–‰Â
+  //ãƒ‘ãƒ¯ãƒ¼ãƒ€ã‚¦ãƒ³ãƒ¢ãƒ¼ãƒ‰ã®é¸æŠžã¨ã‚¹ãƒªãƒ¼ãƒ—æ©Ÿèƒ½ã®è¨±å¯(ãƒ‡ãƒ¼ã‚¿ã‚·ãƒ¼ãƒˆ14.12.1SMCRå‚ç…§)
+  SMCR |= (1 << SM1);// ãƒ‘ãƒ¯ãƒ¼ãƒ€ã‚¦ãƒ³ãƒ¢ãƒ¼ãƒ‰ã«è¨­å®š
+  SMCR |= (1 << SE);// ã‚¹ãƒªãƒ¼ãƒ—æ©Ÿèƒ½ã®è¨±å¯
 
-  //A/DƒRƒ“ƒo[ƒ^‚Ì’âŽ~(ADC:Analog-to-Digital Converter)‚Ì’âŽ~(ƒf[ƒ^ƒV[ƒg28.9.2. ADCSRAŽQÆ)
+  //A/Dã‚³ãƒ³ãƒãƒ¼ã‚¿ã®åœæ­¢(ADC:Analog-to-Digital Converter)ã®åœæ­¢(ãƒ‡ãƒ¼ã‚¿ã‚·ãƒ¼ãƒˆ28.9.2. ADCSRAå‚ç…§)
   //ADCSRA |= (1 << ADEN);  // ON
   ADCSRA &= ~(1 << ADEN); // OFF
 
 
-  //’á“dˆ³ŒŸoŠí(BOD:Brown-Out Detecter)‚Ì’âŽ~(ƒf[ƒ^ƒV[ƒg14.12.2MCUCRŽQÆ)
-  MCUCR |= (1 << BODSE)|(1 << BODS); // BODÝ’è•ÏX‚Ì‚½‚ßCBODS‚ÆBODSE‚É“¯Žž‚É1‚ðo—Í
-  MCUCR = (MCUCR & ~(1 << BODSE))|(1 << BODS);   // ‚»‚ÌŒã4CLK“à‚ÉBODS‚É1CBODSE‚É0‚ðo—Í‚µ‚ÄBOD‚ðOFF
+  //ä½Žé›»åœ§æ¤œå‡ºå™¨(BOD:Brown-Out Detecter)ã®åœæ­¢(ãƒ‡ãƒ¼ã‚¿ã‚·ãƒ¼ãƒˆ14.12.2MCUCRå‚ç…§)
+  MCUCR |= (1 << BODSE)|(1 << BODS); // BODè¨­å®šå¤‰æ›´ã®ãŸã‚ï¼ŒBODSã¨BODSEã«åŒæ™‚ã«1ã‚’å‡ºåŠ›
+  MCUCR = (MCUCR & ~(1 << BODSE))|(1 << BODS);   // ãã®å¾Œ4CLKå†…ã«BODSã«1ï¼ŒBODSEã«0ã‚’å‡ºåŠ›ã—ã¦BODã‚’OFF
 
-  asm("sleep"); // ‚»‚ÌŒã3ƒNƒƒbƒNŽüŠú“à‚ÉƒXƒŠ[ƒvó‘Ô‚ÖˆÚs
+  asm("sleep"); // ãã®å¾Œ3ã‚¯ãƒ­ãƒƒã‚¯å‘¨æœŸå†…ã«ã‚¹ãƒªãƒ¼ãƒ—çŠ¶æ…‹ã¸ç§»è¡Œ
 }
